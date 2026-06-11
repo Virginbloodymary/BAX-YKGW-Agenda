@@ -459,7 +459,9 @@ function filter() {
     let next = h.nextElementSibling;
     let anyVisible = false;
     while (next && !next.classList.contains('day-header') && !next.classList.contains('section-divider')) {
-      if ((next.tagName === 'TABLE' || next.classList.contains('acireale-session') || next.classList.contains('pmo-box') || next.classList.contains('info-card')) && !next.classList.contains('hidden') && next.style.display !== 'none') { anyVisible = true; break; }
+      const tbl = next.tagName === 'TABLE' ? next : (next.querySelector ? next.querySelector('.agenda-table') : null);
+      if (tbl && !tbl.classList.contains('hidden') && tbl.style.display !== 'none') { anyVisible = true; break; }
+      if ((next.classList.contains('acireale-session') || next.classList.contains('pmo-box') || next.classList.contains('info-card')) && !next.classList.contains('hidden') && next.style.display !== 'none') { anyVisible = true; break; }
       next = next.nextElementSibling;
     }
     h.style.display = anyVisible ? '' : 'none';
