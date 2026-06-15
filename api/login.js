@@ -28,6 +28,7 @@ const ALLOWED = new Set([
   'didio@baxenergy.com',
   'orofino@baxenergy.com',
   'simone.debellis@baxenergy.com',
+  'alessandra.cosentino@baxenergy.com',
 ])
 
 module.exports = function handler(req, res) {
